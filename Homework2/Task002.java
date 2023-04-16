@@ -72,7 +72,7 @@ public class Task002 {
 
     private static void createLog(String fileName) throws IOException {
         BufferedWriter writer = new BufferedWriter
-                (new OutputStreamWriter(new FileOutputStream(fileName), Charset.defaultCharset()));
+                (new OutputStreamWriter(new FileOutputStream(fileName), "UTF-8"));
         writer.write(
         "\"фамилия\":\"Иванов\",\"оценка\":\"5\",\"предмет\":\"Математика\"\n"+
             "\"фамилия\":\"Петрова\",\"оценка\":\"4\",\"предмет\":\"Информатика\""
@@ -84,7 +84,7 @@ public class Task002 {
         ArrayList<Student> students = new ArrayList<Student>();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(
-                new FileInputStream(fileName), Charset.defaultCharset()));
+                new FileInputStream(fileName), "UTF-8"));
         String line = reader.readLine();
         while (line != null) {
             Student student = new Student();
@@ -93,7 +93,7 @@ public class Task002 {
             students.add(student);
             line = reader.readLine();
         }
-
+        reader.close();
         return  students;
     }
 
